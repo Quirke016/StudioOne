@@ -13,60 +13,44 @@ public class SpawnGlubleflip : MonoBehaviour
 
     #region referances
     public Vector3 spawnPoint;
-    public GameObject Glubleflip;
+    public GameObject glubleflip;
 
     public Glublefli g;
     #endregion
 
+    Vector3 spawnPos;
     // Update is called once per frame
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // randomly gen the speed of the glublefli
-            speed = Random.Range(0.5f, 10f);
-            Debug.Log(speed);
-
-            // randomly gen the life span of the glublefli
-            lifeSpan = Random.Range(10f, 30f);
-            Debug.Log(lifeSpan);
-
-            // randomly give the glublefli a rarity
-            rarityVal = Random.Range(1, 6);
-            Debug.Log(rarityVal);
-
-            SpawnGlubilefli();
-
-        }
+        SpawnGlubilefli();
+        SpawnGlubilefli();
+        SpawnGlubilefli();
+        SpawnGlubilefli();
+        SpawnGlubilefli();
+        StartCoroutine(Spawn());
     }
 
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Space)) 
+        {
+            SpawnGlubilefli();
+        } 
+    }
 
     public void SpawnGlubilefli()
     {
-        g.sG = this;
-     g.glublefliSpeed = speed;
-     g.glublefliHealth = lifeSpan;
-     g.glublefliName = "temp";
+        spawnPos = new Vector3(Random.Range(-10, 10), 1, Random.Range(-10, 10));
+        Instantiate(glubleflip, spawnPos, Quaternion.identity);
+        StartCoroutine(Spawn());
+    }
 
-        if (rarityVal == 1)
-        {
-            g.glublefliRarity = "Common";
-        }
-        else if(rarityVal == 2) 
-        {
-            g.glublefliRarity = "Un-Common";
-        }
-        else if (rarityVal == 3)
-        {
-            g.glublefliRarity = "Rare";
-        }
-        else if (rarityVal == 4)
-        {
-            g.glublefliRarity = "Epic";
-        }
-        else if (rarityVal == 5)
-        {
-            g.glublefliRarity = "Legendary";
-        } 
+    IEnumerator Spawn()
+    {
+        float spwanTime = Random.Range(0.1f, 30f);
+ 
+        yield return new WaitForSeconds(spwanTime);
+
+        SpawnGlubilefli();
     }
 }
