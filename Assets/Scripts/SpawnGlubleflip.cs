@@ -40,7 +40,7 @@ public class SpawnGlubleflip : MonoBehaviour
 
     public void SpawnGlubilefli()
     {
-        spawnPos = new Vector3(Random.Range(-10, 10), 1, Random.Range(-10, 10));
+        spawnPos = new Vector3(Random.Range(-15, 15), 1, Random.Range(-15, 15));
         Instantiate(glubleflip, spawnPos, Quaternion.identity);
         StartCoroutine(Spawn());
     }

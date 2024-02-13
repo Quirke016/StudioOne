@@ -39,19 +39,19 @@ public class Glublefli : MonoBehaviour
         {
             int uncommonCheck = Random.Range(1, 100);
 
-            if (uncommonCheck > 75)
+            if (uncommonCheck < 75)
             {
                 int rareCheck = Random.Range(1, 100);
 
-                if (rareCheck > 50)
+                if (rareCheck < 50)
                 {
                     int epicCheck = Random.Range(1, 100);
 
-                    if (epicCheck > 25)
+                    if (epicCheck < 25)
                     {
                         int LedgendaryCheck = Random.Range(1, 100);
 
-                        if (LedgendaryCheck > 5)
+                        if (LedgendaryCheck < 5)
                         {
                             glublefliRarity = "Legendary";
                             r.material.color = Color.white;
