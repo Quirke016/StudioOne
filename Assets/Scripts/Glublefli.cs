@@ -15,14 +15,32 @@ public class Glublefli : MonoBehaviour
 
     #region Refs;
     public TextMeshPro tMP;
-    [SerializeField] Renderer r;
+    //[SerializeField] Renderer r;
     [SerializeField] GameObject thisTwo;
+    public Movement m;
+
+    #region Glublefli
+    public GameObject nOne;
+    public GameObject nTwo;
+    public GameObject nThree;
+    public GameObject nFour;
+    public GameObject nFive;
+
+    #endregion
     #endregion
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //hides all the sprites
+        nOne.SetActive(false);
+        nTwo.SetActive(false);
+        nThree.SetActive(false);
+        nFour.SetActive(false);
+        nFive.SetActive(false);
+       
+
         // randomly gen the speed of the glublefli
         glublefliSpeed = Random.Range(0.5f, 10f);
         Debug.Log(glublefliSpeed);
@@ -54,13 +72,17 @@ public class Glublefli : MonoBehaviour
                         if (LedgendaryCheck < 5)
                         {
                             glublefliRarity = "Legendary";
-                            r.material.color = Color.white;
+                            //r.material.color = Color.white;
+                            nFive.SetActive(true);
+                            m.g_Speed = 3f;
                         }
 
                         else
                         {
                             glublefliRarity = "Epic";
-                            r.material.color = Color.yellow;
+                            //r.material.color = Color.yellow;
+                            nFour.SetActive(true);
+                            m.g_Speed = 6;
                         }
 
                     }
@@ -68,21 +90,27 @@ public class Glublefli : MonoBehaviour
                     else
                     {
                         glublefliRarity = "Rare";
-                        r.material.color = Color.red;
+                        //r.material.color = Color.red;
+                        nThree.SetActive(true);
+                        m.g_Speed = 8.5f;
                     }
                 }
 
                 else
                 {
                     glublefliRarity = "Un-Common";
-                    r.material.color = Color.blue;
+                    //r.material.color = Color.blue;
+                    nTwo.SetActive(true);
+                    m.g_Speed = 1;
                 }
             }
             
             else
             {
                 glublefliRarity = "Common";
-                r.material.color = Color.green;
+                //r.material.color = Color.green;
+                nOne.SetActive(true);
+                m.g_Speed = 4;
             }
 
         }
