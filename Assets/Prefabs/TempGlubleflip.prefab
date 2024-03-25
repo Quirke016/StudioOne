@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 2414830555095979758}
   - component: {fileID: 876775363482168386}
   - component: {fileID: 6503336775135156218}
+  - component: {fileID: 7151666447979030193}
   m_Layer: 0
   m_Name: N1
   m_TagString: Untagged
@@ -369,6 +370,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewer: {fileID: 0}
   billboard: {fileID: 5995791862588509741}
+--- !u!114 &7151666447979030193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995791862588509741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5ff6b4540ad604e893891bbf4f3971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7162769053267173048
 GameObject:
   m_ObjectHideFlags: 0

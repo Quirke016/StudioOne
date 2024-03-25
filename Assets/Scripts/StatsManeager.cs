@@ -2,42 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StatsManeager : MonoBehaviour
 {
     #region Stats
-    public int money;
-    public int food;
-    public float popularity;
+    public int money = 10;
+    public int food = 10;
+    public float popularity = 10;
     public float dayLength;
     public int dayCount;
     public float difficulty;
 
-    #region TMPRefs
+    #region refs
+    public GameObject dayCountScreen;
+    public GameObject endScreenA;
+    public Flip f;
 
+    #region TMPRefs
     public TextMeshProUGUI moneyAmount;
     public TextMeshProUGUI foodAmount;
     public TextMeshProUGUI popularityAmount;
-    public TextMeshProUGUI dayCountAmount; 
+    public TextMeshProUGUI dayCountAmount;
+    public TextMeshProUGUI dayCountConstant;
 
+    #endregion
     #endregion
     #endregion
 
     private void Start()
     {
-        
+        dayLength = 120;
+        StartCoroutine(DayCycle());
     }
     public void Update()
     {
-        if (food >= 0 && money >= 0) 
+        moneyAmount.text = money.ToString();
+        popularityAmount.text = ((int)popularity).ToString();
+
+        if (food <= 0 && money <= 0) 
         {
-            //end game
+            f.flip = true;
         }
 
-        if (popularity >= 0)
+        if (popularity <= -100)
         {
-            //end game
+            endScreenA.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
@@ -45,6 +57,25 @@ public class StatsManeager : MonoBehaviour
     {
 
         yield return new WaitForSeconds(dayLength);
+
+        dayCount++;
+        if (f.flip)
+        {
+            popularity -= Random.Range(1.001f, 10f);
+        }
+
+        difficulty += Random.Range(0.1f, 5f);
+        dayCountScreen.SetActive(true);
+
+        dayCountAmount.text = dayCount.ToString();
+        dayCountConstant.text = dayCount.ToString();
+
+        yield return new WaitForSeconds(2.5f);
+
+        dayCountScreen.SetActive(false);
+
+        StartCoroutine(DayCycle());
+
 
 
     }
