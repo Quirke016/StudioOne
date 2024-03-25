@@ -43,15 +43,15 @@ public class Glublefli : MonoBehaviour
 
         // randomly gen the speed of the glublefli
         glublefliSpeed = Random.Range(0.5f, 10f);
-        Debug.Log(glublefliSpeed);
+        //Debug.Log(glublefliSpeed);
 
         // randomly gen the life span of the glublefli
         glublefliHealth = Random.Range(6.5f, 20.5f);
-        Debug.Log(glublefliHealth);
+        //Debug.Log(glublefliHealth);
 
         // randomly give the glublefli a rarity
         int rarityVal = Random.Range(1, 2); 
-        Debug.Log(rarityVal);
+        //Debug.Log(rarityVal);
 
         if (rarityVal <= 1)
         {
@@ -116,7 +116,7 @@ public class Glublefli : MonoBehaviour
         }
 
         StartCoroutine(LifeSpan());
-        tMP.text = glublefliRarity;
+        //tMP.text = glublefliRarity;
 
     }
 

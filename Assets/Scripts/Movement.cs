@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
         Vector3 randMove = new Vector3(horizontal, 0, vertical);
         rb.MovePosition(transform.position + randMove * Time.deltaTime * g_Speed);
 
-        
+
     }
 
     IEnumerator UpAndDown()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Billboard : MonoBehaviour
+public class BillboardAlt : MonoBehaviour
 {
 
     public GameObject viewer; //this is the object that the billboard will look at (I.E. the Camera)
@@ -11,7 +11,7 @@ public class Billboard : MonoBehaviour
 
     private void Start()
     {
-        viewer = GameObject.Find("Main Camera POV");
+        viewer = GameObject.Find("Main Camera POV Two");
     }
 
     // Update is called once per frame   
