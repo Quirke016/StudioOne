@@ -33,7 +33,7 @@ public class StatsManeager : MonoBehaviour
 
     private void Start()
     {
-        dayLength = 5;
+        dayLength = 6;
         StartCoroutine(DayCycle());
     }
     public void Update()
@@ -74,12 +74,15 @@ public class StatsManeager : MonoBehaviour
         dayCountConstant.text = dayCount.ToString();
 
         yield return new WaitForSeconds(2.5f);
+        GameObject npc1 = GameObject.Find("NPCOne(Clone)");
+        GameObject npc2 = GameObject.Find("NPCTwo(Clone)");
+        GameObject npc3 = GameObject.Find("NPCThree(Clone)");
+
+        Destroy(npc1); Destroy(npc2); Destroy(npc3);
+
 
         dayCountScreen.SetActive(false);
 
         StartCoroutine(DayCycle());
-
-
-
     }
 }
