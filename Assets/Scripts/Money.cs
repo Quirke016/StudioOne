@@ -20,7 +20,7 @@ public class Money : MonoBehaviour
     public void AddMoney()
     {
         tip = Random.Range(0f, maxTip);
-        sM.money += (int)(sM.popularity * (Random.Range(1f, 5f) + (tip + entryFee)));
+        sM.money += (int)((sM.popularity * (Random.Range(1f, 5f) + ((tip * sM.luck) + entryFee) * (sM.difficulty / 75))));
         sM.popularity += Random.Range(-1.5f, 3.5f);
     }
 }

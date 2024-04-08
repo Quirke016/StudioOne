@@ -14,11 +14,13 @@ public class StatsManeager : MonoBehaviour
     public float dayLength;
     public int dayCount;
     public float difficulty;
+    public float luck;
 
     #region refs
     public GameObject dayCountScreen;
     public GameObject endScreenA;
     public Flip f;
+    public GameObject winScreen;
 
     #region TMPRefs
     public TextMeshProUGUI moneyAmount;
@@ -33,7 +35,7 @@ public class StatsManeager : MonoBehaviour
 
     private void Start()
     {
-        dayLength = 6;
+        dayLength = 60;
         StartCoroutine(DayCycle());
     }
     public void Update()
@@ -62,6 +64,7 @@ public class StatsManeager : MonoBehaviour
         yield return new WaitForSeconds(dayLength);
 
         dayCount++;
+        difficulty++;
         if (f.flip)
         {
             popularity -= Random.Range(1.001f, 10f);
@@ -81,7 +84,13 @@ public class StatsManeager : MonoBehaviour
         Destroy(npc1); Destroy(npc2); Destroy(npc3);
 
 
+
         dayCountScreen.SetActive(false);
+
+        if (dayCount > 10)
+        {winScreen.SetActive(true);
+            winScreen.SetActive(true);
+        }
 
         StartCoroutine(DayCycle());
     }
