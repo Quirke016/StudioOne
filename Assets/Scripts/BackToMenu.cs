@@ -10,7 +10,6 @@ public class BackToMenu : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
-        sM.winScreen.SetActive(false);
     }
 
     public void StartGame()
