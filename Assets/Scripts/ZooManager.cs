@@ -7,7 +7,11 @@ public class ZooManager : MonoBehaviour
 {
 
     public List<GameObject> _gloobelfub = new List<GameObject>();
+    List<string> _gloobelfubRarity = new List<string>();
     public int maxGloobelfub;
+
+    public Glublefli g;
+
 
     #region goobelfun
 
@@ -34,9 +38,28 @@ public class ZooManager : MonoBehaviour
 
     public void Update()
     {
+        #region rarity
+
+        if (_gloobelfub[0] != null)
+        {
+            AddRarity("f");
+        }
+
+
+
+
+
+        #endregion 
+
+
+
+
+
+
         #region free slots
         if (_gloobelfub[0] != null)
         {
+            
             slotOne.text = _gloobelfub[0].ToString();
         }
         if (_gloobelfub[0] == null)
@@ -105,7 +128,12 @@ public class ZooManager : MonoBehaviour
 
     public void AddGloobelfub(string rarity)
     {
-
+        
         _gloobelfub.Add(gameObject);
+    }
+
+    public void AddRarity(string rarity)
+    {
+    
     }
 }

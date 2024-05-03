@@ -10,6 +10,7 @@ public class AddToZoo : MonoBehaviour
     public GameObject manager;
     public StatsManeager sM;
     public ZooManager zM;
+    public string gR;
 
     public TextMeshProUGUI cantCatch;
 
@@ -19,6 +20,10 @@ public class AddToZoo : MonoBehaviour
         zM = GameObject.Find("ManagerManager").GetComponent<ZooManager>();
     }
 
+    public void Update()
+    {
+        gR = g.glublefliRarity;
+}
     public void OnMouseUpAsButton()
     {
         zM = GameObject.Find("ManagerManager").GetComponent<ZooManager>();
@@ -26,7 +31,7 @@ public class AddToZoo : MonoBehaviour
         {
             Debug.Log(g.glublefliRarity.ToString());
             GameObject.Find("ManagerManager").GetComponent<ZooManager>().AddGloobelfub(g.glublefliRarity);
-
+            zM.AddRarity(gR);
 
             Destroy(gameObject);
         }
